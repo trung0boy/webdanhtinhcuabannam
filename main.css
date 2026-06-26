@@ -1,0 +1,57 @@
+#header {
+    color: #000000;
+    font-size: 30px;
+    text-align: center;
+}
+#form-title {
+    color: #e21a1a;
+    font-size: 20px;
+    text-align: center;
+}
+#fullname {
+    width: 100%;
+    padding: 12px 25px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    color: #e21a1a;
+}
+label[for="fullname"] {
+    color: #e21a1a;
+}
+#form-title span:nth-child(1) {color: #ff0000;}
+#form-title span:nth-child(2) {color: #ff7f00;}
+#form-title span:nth-child(3) {color: #ffff00;}
+#form-title span:nth-child(4) {color: #00ff00;}
+#form-title span:nth-child(5) {color: #0000ff;}
+#form-title span:nth-child(6) {color: #4b0082;}
+#form-title span:nth-child(7) {color: #8b00ff;}
+#form-title span:nth-child(8) {color: #ff0000;}
+#form-title span:nth-child(9) {color: #ff7f00;}
+#form-title span:nth-child(10) {color: #ffff00;}
+#form-title span:nth-child(11) {color: #00ff00;}
+#form-title span:nth-child(12) {color: #0000ff;}
+#form-title span:nth-child(13) {color: #4b0082;}
+#form-title span:nth-child(14) {color: #8b00ff;}
+#form-title span:nth-child(15) {color: #ff0000;}
+#form-title span:nth-child(16) {color: #ff7f00;}
+#form-title span:nth-child(17) {color: #ffff00;}
+#form-title span:nth-child(18) {color: #00ff00;}
+#form-title span:nth-child(19) {color: #0000ff;}
+#form-title span:nth-child(20) {color: #4b0082;}
+
+#check-btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+#result {
+     margin-top:20px; 
+     padding:10px; 
+     border:1px solid #ccc; 
+     min-height:40px; 
+     background:#f9f9f9;
+}

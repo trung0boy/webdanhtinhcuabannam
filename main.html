@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="header">Kiểm Tra xem bạn có gay không</div>
+    <h2 id="form-title">
+        <span>N</span><span>h</span><span>ậ</span><span>p</span>
+        <span>t</span><span>h</span><span>ô</span><span>n</span><span>g</span>
+        <span>t</span><span>i</span><span>n</span>
+        <span>c</span><span>ủ</span><span>a</span>
+        <span>b</span><span>ạ</span><span>n</span>
+    </h2>
+    <form id="info-form">
+        <label for="fullname">Họ tên:</label>
+        <input type="text" id="fullname" name="fullname">
+        <br><br>
+        <label for="birthyear">Năm sinh:</label>
+        <input type="number" id="birthyear" name="birthyear" min="1900" max="2100">
+        <br><br>
+        <label>Giới tính:</label>
+        <label><input type="radio" name="gender" value="Nam"> Nam</label>
+        <label><input type="radio" name="gender" value="Nữ"> Nữ</label>
+        <label><input type="radio" name="gender" value="Khác"> Khác</label>
+    </form>
+    
+    <div style="margin-top:10px;">
+        <button id="check-btn" type="button">Kiểm tra</button>
+    </div>
+    <div id="result">
+        <!-- Thông tin trả về sẽ hiển thị ở đây -->
+    </div>
+
+    <!-- CHUYỂN THẺ SCRIPT XUỐNG ĐÂY -->
+    <script src="main.js"></script>
+</body>
+</html>
