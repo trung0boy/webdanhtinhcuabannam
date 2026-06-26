@@ -19,8 +19,8 @@
         <label for="fullname">Họ tên:</label>
         <input type="text" id="fullname" name="fullname">
         <br><br>
-        <label for="birthyear">Năm sinh:</label>
-        <input type="number" id="birthyear" name="birthyear" min="1900" max="2100">
+        <label for="birthyear">Năm sinh: </label>
+        <input type="number" id="birthyear" name="birthyear" min="-999999999999" max="999999999999" placeholder="Ví dụ: 2000">
         <br><br>
         <label>Giới tính:</label>
         <label><input type="radio" name="gender" value="Nam"> Nam</label>
@@ -32,7 +32,15 @@
         <button id="check-btn" type="button">Kiểm tra</button>
     </div>
     <div id="result">
-        <!-- Thông tin trả về sẽ hiển thị ở đây -->
+        <span style="color: #94a3b8; font-style: italic;">Kết quả phân tích sẽ hiển thị tại đây...</span>
+    </div>
+    <div id = "footer">
+        <div style="border: 1px solid #94a3b8; padding: 15px; border-radius: 5px; background-color: #f8f9fa; margin-top: 20px;">
+            <!-- thông tin cuối trang-->
+            <p style="text-align: center; color: #94a3b8; font-size: 12px; margin: 0;">
+                &copy; 2026 Bản quyền thuộc về <a href="#" style="color: #94a3b8; text-decoration: underline;">Nguyễn Thành Trung</a>
+            </p>
+        </div>
     </div>
 
     <!-- CHUYỂN THẺ SCRIPT XUỐNG ĐÂY -->

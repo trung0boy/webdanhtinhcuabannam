@@ -1,57 +1,209 @@
+/* Toàn bộ giao diện nền */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #afc0db 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Container chứa form */
+.container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 100%;
+    max-width: 450px;
+    box-sizing: border-box;
+}
+
+/* Tiêu đề chính */
 #header {
     color: #000000;
-    font-size: 30px;
+    font-size: 28px;
+    font-weight: 800;
     text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+/* Tiêu đề phụ (màu cầu vồng tĩnh) */
 #form-title {
-    color: #e21a1a;
     font-size: 20px;
     text-align: center;
+    margin-bottom: 25px;
+    font-weight: bold;
 }
-#fullname {
-    width: 100%;
-    padding: 12px 25px;
-    margin: 8px 0;
-    box-sizing: border-box;
-    color: #e21a1a;
-}
-label[for="fullname"] {
-    color: #e21a1a;
-}
+
 #form-title span:nth-child(1) {color: #ff0000;}
 #form-title span:nth-child(2) {color: #ff7f00;}
-#form-title span:nth-child(3) {color: #ffff00;}
+#form-title span:nth-child(3) {color: #ffaa00;}
 #form-title span:nth-child(4) {color: #00ff00;}
 #form-title span:nth-child(5) {color: #0000ff;}
 #form-title span:nth-child(6) {color: #4b0082;}
 #form-title span:nth-child(7) {color: #8b00ff;}
 #form-title span:nth-child(8) {color: #ff0000;}
 #form-title span:nth-child(9) {color: #ff7f00;}
-#form-title span:nth-child(10) {color: #ffff00;}
+#form-title span:nth-child(10) {color: #ffaa00;}
 #form-title span:nth-child(11) {color: #00ff00;}
 #form-title span:nth-child(12) {color: #0000ff;}
 #form-title span:nth-child(13) {color: #4b0082;}
 #form-title span:nth-child(14) {color: #8b00ff;}
 #form-title span:nth-child(15) {color: #ff0000;}
 #form-title span:nth-child(16) {color: #ff7f00;}
-#form-title span:nth-child(17) {color: #ffff00;}
+#form-title span:nth-child(17) {color: #ffaa00;}
 #form-title span:nth-child(18) {color: #00ff00;}
 #form-title span:nth-child(19) {color: #0000ff;}
 #form-title span:nth-child(20) {color: #4b0082;}
 
-#check-btn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    display: block;
-    margin: 0 auto;
+/* Định dạng Layout Form */
+#info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    #label {
+        font-weight: 600;
+        color: #05caec;
+        font-size: 14px;
+        margin-top: 10px;
+    }
 }
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+label {
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 14px;
+}
+
+/* Định dạng ô nhập dữ liệu */
+input[type="text"],
+input[type="number"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #4b0082;
+    box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.15);
+}
+
+/* Lựa chọn giới tính */
+.gender-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.gender-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.gender-label input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #8b00ff;
+}
+
+/* Nút kích hoạt kiểm tra */
+#check-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px rgba(118, 75, 162, 0.25);
+}
+
+#check-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(118, 75, 162, 0.35);
+}
+
+#check-btn:active {
+    transform: translateY(0);
+}
+
+/* Khung hiển thị kết quả chung */
 #result {
-     margin-top:20px; 
-     padding:10px; 
-     border:1px solid #ccc; 
-     min-height:40px; 
-     background:#f9f9f9;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px dashed #cbd5e1;
+    min-height: 50px;
+    background-color: #f8fafc;
+    transition: all 0.3s ease;
+    color: #334155;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.result-title {
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+    display: block;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 5px;
+}
+
+/* Các nhóm màu sắc hiển thị khác nhau */
+.status-straight {
+    color: #059669; /* Màu xanh lá tươi */
+    font-weight: bold;
+}
+
+.status-les {
+    color: #db2777; /* Màu hồng đậm lãng mạn */
+    font-weight: bold;
+}
+
+.status-gay {
+    color: #9333ea; /* Màu tím huyền bí */
+    font-weight: bold;
+}
+
+.status-warning {
+    color: #ca8a04; /* Màu vàng sẫm cảnh báo */
+    font-weight: bold;
+}
+
+#footer {
+    margin-top: 1600px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
 }
