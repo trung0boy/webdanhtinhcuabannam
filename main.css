@@ -12,6 +12,14 @@ body {
     box-sizing: border-box;
 }
 
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Tạo hình tròn */
+  object-fit: cover;  /* Tránh bị méo ảnh */
+}
+
+
 /* Container chứa form */
 .container {
     background-color: #ffffff;
