@@ -22,6 +22,23 @@ document.addEventListener("DOMContentLoaded", function () {
         "nguyễn Hiếu", "Nguyễn Hiếu", "Nguyễnn hiếu", "nguyễn Hiếu", "NGUYỄN HIẾU", "NGUYỄN HIẾU"
     ];
 
+    const danhsachtenadmin = [
+        "trung","Trung","TRUNG",
+        "thanh trung","Thanh Trung","Thanh trung","thanh Trung","THANH TRUNG","THANH Trung",
+        "thành trung","Thành Trung","Thành trung","thành Trung","THÀNH TRUNG","THANH trung",
+        "THÀNH trung","THÀNH Trung","nguyễn trung", "Nguyễn trung","NGUYỄN trung",
+        "nguyễn Trung","NGUYEN Trung","NGUYEN trung","NGUYỄN TRUNG","nguyen trung","Nguyen trung","NGUYEN TRUNG",
+        "nguyen Trung","Nguyen Trung","Nguyễn Trung","NGUYỄN Trung",
+        "nguyen thanh trung","Nguyen thanh trung","nguyen thanh Trung","NGUYEN thanh trung",
+        "Nguyen Thanh Trung","nguyen Thanh trung","NGUYEN THANH TRUNG","NGUYEN Thanh Trung",
+        "nguyễn thành trung","nguyễn Thành trung","NGUYỄN thành trung","Nguyen Thành Trung",
+        "Nguyễn Thành Trung","nguyễn thành Trung","NGUYỄN Thành Trung","NGUYEN THÀNH TRUNG",
+        "Nguyễn thành trung","NGUYỄN THÀNH TRUNG","nguyen thành trung","nguyễn thanh trung",
+        "nguyen Thanh trung","Nguyễn thanh trung","nguyễn Thanh trung","Nguyễn Thanh Trung",
+        "NGUYỄN THANH TRUNG","nguyen thanh Trung","nguyễn thành Trung"
+      
+    ];
+
     if (checkBtn) {
         // Lắng nghe sự kiện click vào nút Kiểm tra
         checkBtn.addEventListener('click', function () {
@@ -54,13 +71,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Kiểm tra xem tên có nằm trong danh sách "bị chỉ định Gay" hay không
             let isDefaultGay = danhsachten.some(name => lowerFullname.includes(name.toLowerCase()));
+            let isAdmin = danhsachtenadmin.some(name => lowerFullname.includes(name.toLowerCase()));
 
             if (isDefaultGay) {
                 // Tên nằm trong "danh sách đen" -> Chắc chắn GAY (Màu hồng đậm)
                 nameResult = "<span class='status-les' style='color:#e11d48;'>Thằng này chắc chắn GAY 🏳️‍🌈.</span>";
                 borderColor = "#fbcfe8";
                 backgroundColor = "#fdf2f8";
+            
+            // kiểm tra xem tên có nằm trong danh sách admin không
+            
+            } else if (isAdmin) {
+                // Tên nằm trong "danh sách admin" -> Ch
+                nameResult = "<span class='status-admin' style='color:#2563eb;'>Người này là Admin, chắc chắn bình thường! ✅</span>";
+                borderColor = "#bfdbfe"; // Viền xanh dương
+                backgroundColor = "#eff6ff"; // Nền xanh dương nhạt
+            
             } else {
+                
                 // Tên bình thường -> Xử lý ngẫu nhiên 3 trường hợp dựa trên giới tính
                 const rand = Math.random(); // Trả về số thực từ 0 đến sát 1
 
