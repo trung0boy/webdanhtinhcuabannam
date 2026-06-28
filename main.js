@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const resultOutput = document.getElementById('result');
 
     // Danh sách các tên nghi vấn sẽ bị chẩn đoán "GAY mặc định"
-    const danhsachten = [
+    const danhsachgay = [
         "tuyen", "Tuyen", "tuyên", "Tuyên", "TUYEN", "TUYÊN",
         "minh tuyên", "Minh Tuyên", "Minh tuyên", "minh Tuyen", "MINH TUYEN", "MINH TUYÊN",
         "minh tuyen", "Minh Tuyen", "Minh tuyên", "minh Tuyen", "MINH TUYEN", "MINH TUYÊN",
@@ -13,13 +13,25 @@ document.addEventListener("DOMContentLoaded", function () {
         "vu tuyen", "Vu Tuyen", "Vu tuyên", "vu Tuyen", "VU TUYEN", "VU TUYÊN",
         "vũ Tuyên", "Vũ Tuyên", "Vũn tuyên", "vũ Tuyên", "VŨ TUYÊN", "VŨ TUYÊN",
 
+
+        "dang", "Dang", "đăng", "Đăng", "DANG", "ĐĂNG",
+        "nguyen dang", "Nguyen Dang", "Nguyen đăng", "nguyen Dang", "NGUYEN DANG", "NGUYÊN ĐĂNG",
+        "nguyễn đăng", "Nguyễn Đăng", "Nguyễn đăng", "nguyễn Đăng", "NGUYỄN ĐĂNG", "NGUYỄN ĐĂNG",
+        "van dang", "Van Dang", "Van đăng", "van Dang", "VAN DANG", "VAN ĐĂNG",
+        "văn đăng", "Văn Đăng", "Văn đăng", "văn Đăng", "VĂN ĐĂNG", "VĂN ĐĂNG",
+        "nguyen van dang", "Nguyen Van Dang", "Nguyen văn đăng", "nguyen Van Dang", "NGUYEN VAN DANG", "NGUYÊN VĂN ĐĂNG",
+        "nguyễn văn đăng", "Nguyễn Văn Đăng", "Nguyễn văn đăng", "nguyễn Văn Đăng", "NGUYỄN VĂN ĐĂNG", "NGUYỄN VĂN ĐĂNG"
+    ];
+
+    const danhsachtencony = [
         "hieu", "Hieu", "hiếu", "Hiếu", "HIEU", "HIẾU",
         "dang hieu", "Dang Hieu", "Dang hiếu", "dang Hieu", "DANG HIEU", "ĐĂNG HIẾU",
         "đăng hiếu", "Đăng Hiếu", "Đăng hiếu", "đăng Hiếu", "ĐĂNG HIẾU", "ĐĂNG HIẾU",
         "nguyen dang hieu", "Nguyen Dang Hieu", "Nguyen dang hieu", "nguyen Dang Hieu", "NGUYEN DANG HIEU", "NGUYÊN ĐĂNG HIẾU",
         "nguyễn đăng hiếu", "Nguyễn Đăng Hiếu", "Nguyễn đăng hiếu", "nguyễn Đăng Hiếu", "NGUYỄN ĐĂNG HIẾU", "NGUYỄN ĐĂNG HIẾU",
         "nguyen hieu", "Nguyen Hieu", "Nguyen hiếu", "nguyen Hieu", "NGUYEN HIEU", "NGUYÊN HIẾU",
-        "nguyễn Hiếu", "Nguyễn Hiếu", "Nguyễnn hiếu", "nguyễn Hiếu", "NGUYỄN HIẾU", "NGUYỄN HIẾU"
+        "nguyễn Hiếu", "Nguyễn Hiếu", "Nguyễnn hiếu", "nguyễn Hiếu", "NGUYỄN HIẾU", "NGUYỄN HIẾU",
+        "nguyễn hieu", "Nguyễn Hieu", "Nguyễn hiếu", "nguyễn Hieu", "NGUYỄN HIEU", "NGUYỄN HIẾU"
     ];
 
     const danhsachtenadmin = [
@@ -69,21 +81,29 @@ document.addEventListener("DOMContentLoaded", function () {
             let borderColor = "#cbd5e1";
             let backgroundColor = "#f8fafc";
 
-            // Kiểm tra xem tên có nằm trong danh sách "bị chỉ định Gay" hay không
-            let isDefaultGay = danhsachten.some(name => lowerFullname.includes(name.toLowerCase()));
-            let isAdmin = danhsachtenadmin.some(name => lowerFullname.includes(name.toLowerCase()));
+            // Kiểm tra xem tên có nằm trong danh sách "bị chỉ định" không
+            let isDefaultGay = danhsachgay.some(name => lowerFullname === name.toLowerCase());
+            let isAdmin = danhsachtenadmin.some(name => lowerFullname === name.toLowerCase());
+            let isCony = danhsachtencony.some(name => lowerFullname === name.toLowerCase());
 
             if (isDefaultGay) {
                 // Tên nằm trong "danh sách đen" -> Chắc chắn GAY (Màu hồng đậm)
                 nameResult = "<span class='status-les' style='color:#e11d48;'>Thằng này chắc chắn GAY 🏳️‍🌈.</span>";
                 borderColor = "#fbcfe8";
                 backgroundColor = "#fdf2f8";
+           
+
+            } else if (isCony) {
+                // Tên nằm trong "danh sách có người yêu" -> Chắc chắn bình thường (Màu xanh lá)
+                nameResult = "<span class='status-straight' style='color:#16a34a;'>Thằng này có người yêu, không GAY nổi! 💚</span>";
+                borderColor = "#bbf7d0"; // Viền xanh lá
+                backgroundColor = "#f0fdf4"; // Nền xanh lá nhạt
             
-            // kiểm tra xem tên có nằm trong danh sách admin không
+            
             
             } else if (isAdmin) {
                 // Tên nằm trong "danh sách admin" -> Ch
-                nameResult = "<span class='status-admin' style='color:#2563eb;'>Người này là Admin, chắc chắn bình thường! ✅</span>";
+                nameResult = "<span class='status-admin' style='color:#2563eb;'>Đây này là Admin, chắc chắn bình thường! ✅</span>";
                 borderColor = "#bfdbfe"; // Viền xanh dương
                 backgroundColor = "#eff6ff"; // Nền xanh dương nhạt
             
