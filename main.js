@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "nguyễn hieu", "Nguyễn Hieu", "Nguyễn hiếu", "nguyễn Hieu", "NGUYỄN HIEU", "NGUYỄN HIẾU"
     ];
 
-    const danhsachtenadmin = [
+    const danhsachtenadmin = [ // tên admin sẽ được chẩn đoán chắc chắn bình thường
         "trung","Trung","TRUNG",
         "thanh trung","Thanh Trung","Thanh trung","thanh Trung","THANH TRUNG","THANH Trung",
         "thành trung","Thành Trung","Thành trung","thành Trung","THÀNH TRUNG","THANH trung",
@@ -50,6 +50,150 @@ document.addEventListener("DOMContentLoaded", function () {
         "NGUYỄN THANH TRUNG","nguyen thanh Trung","nguyễn thành Trung"
       
     ];
+
+    function getAgeDialogue(age) { // kiểm tra tuổi
+        let dialogues = [];
+
+        if (age < -1000000) {
+            dialogues = [
+                "Tuổi này là từ thời vụ nổ Big Bang à?",
+                "Bạn sống trước cả khi Trái Đất hình thành luôn?",
+                "Kính lão đắc thọ, cụ cố của vũ trụ ơi!"
+            ];
+        } else if (age < -500000) {
+            dialogues = [
+                "Thời này loài người còn chưa tiến hóa xong nữa.",
+                "Bạn là người tối cổ phiên bản đời đầu đúng không?",
+                "Tuổi âm vô cực thế này ai chơi lại bạn."
+            ];
+        } else if (age < -100000) {
+            dialogues = [
+                "Chắc bạn sống qua mấy kỷ băng hà rồi nhỉ?",
+                "Thời tiền sử vẫy gọi bạn quay về kìa.",
+                "Cụ tổ của loài người gọi bằng cụ luôn."
+            ];
+        } else if (age < -50000) {
+            dialogues = [
+                "Tuổi này chắc bạn rủ khủng long đi uống trà sữa à?",
+                "Hồi đó thế giới có gì vui không bạn?",
+                "Kỷ niệm thời tiền sử của bạn chắc phong phú lắm."
+            ];
+        } else if (age < -5000) {
+            dialogues = [
+                "Bạn sinh ra trước cả Công Nguyên luôn sao?",
+                "Chắc bạn chứng kiến mấy nền văn minh cổ đại sụp đổ luôn nhỉ?",
+                "Tuổi này thì sách lịch sử cũng chịu thua."
+            ];
+        } else if (age < -500) {
+            dialogues = [
+                "Thời phong kiến xa xưa có gì thú vị không cụ?",
+                "Bạn là ma cà rồng hay người bất tử vậy?",
+                "Tuổi này sống qua mấy triều đại rồi đấy."
+            ];
+        } else if (age < -300) {
+            dialogues = [
+                "Cụ sống thọ quá, con cháu tìm không ra luôn.",
+                "Bí kíp trường sinh bất lão của cụ là gì thế?",
+                "Ba trăm mấy năm trước bạn làm nghề gì?"
+            ];
+        } else if (age < -100) {
+            dialogues = [
+                "Ủa alo, âm hơn cả thế kỷ luôn hả?",
+                "Bạn nhập năm sinh ở tương lai hay sao vậy?",
+                "Tuổi này chắc chưa có trên bản đồ nhân loại."
+            ];
+        } else if (age < -5) {
+            dialogues = [
+                "Ủa bạn còn chưa đầu thai hay sao?",
+                "Năm sinh âm thế này thì chịu rồi.",
+                "Bạn đến từ tương lai đúng không?"
+            ];
+        } else if (age === 0) {
+            dialogues = [
+                "Mới đẻ ra đã biết lên mạng test gay rồi à?",
+                "Chào bé cưng mới lọt lòng mẹ nhé!",
+                "0 tuổi mà đã biết bấm nút kiểm tra, thiên tài!"
+            ];
+        } else if (age < 16) {
+            dialogues = [
+                "Tuổi này lo học đi em ơi, gay gủng gì tầm này.",
+                "Còn nhỏ tuổi lo ăn lo lớn đi nhé.",
+                "Tuổi học trò ngây thơ trong sáng, đừng vội vã."
+            ];
+        } else if (age < 25) {
+            dialogues = [
+                "Tuổi trẻ tài cao, tràn đầy năng lượng thanh xuân.",
+                "Cái tuổi đẹp nhất để đi tìm bản ngã cuộc đời.",
+                "Độ tuổi này tình yêu bắt đầu nở rộ rồi nè."
+            ];
+        } else if (age < 40) {
+            dialogues = [
+                "Tuổi này là chín chắn, trưởng thành lắm rồi.",
+                "Giai đoạn ổn định cuộc sống và sự nghiệp.",
+                "U30 U40 tới nơi rồi, thẳng hay cong biết liền."
+            ];
+        } else if (age < 60) {
+            dialogues = [
+                "Giai đoạn trung niên đầy trải nghiệm sống.",
+                "Tuổi này người ta nhìn đời bằng ánh mắt thấu hiểu rồi.",
+                "Trải qua nửa đời người, không còn gì phải giấu diếm."
+            ];
+        } else if (age < 100) {
+            dialogues = [
+                "Bách niên giai lão, cụ sống thọ quá cụ ơi.",
+                "Tuổi xế chiều vui vầy bên con cháu thôi cụ.",
+                "Cụ thọ thế này là phước đức của gia đình đấy."
+            ];
+        } else if (age < 200) {
+            dialogues = [
+                "Kỷ lục Guinness thế giới đang chờ danh tính của bạn.",
+                "Làm sao sống thọ qua cả trăm tuổi hay thế bạn?",
+                "Cụ là nhân chứng sống của hai thế kỷ rồi."
+            ];
+        } else if (age < 500) {
+            dialogues = [
+                "Cụ sống từ thời nhà Lê hay nhà Nguyễn thế?",
+                "Thành tinh mất rồi cụ ơi!",
+                "Sống mấy trăm năm thế này không chán hả cụ?"
+            ];
+        } else if (age < 1000) {
+            dialogues = [
+                "Yêu quái phương nào tu luyện ngàn năm ở đây?",
+                "Cụ sống lâu hơn cả một vương triều.",
+                "Tuổi này chắc chứng kiến hết thăng trầm lịch sử."
+            ];
+        } else if (age < 5000) {
+            dialogues = [
+                "Bạn sống từ thời các Vua Hùng dựng nước à?",
+                "Huyền thoại sống của nhân loại là đây chứ đâu.",
+                "Năm ngàn tuổi thì thành thần tiên mất rồi."
+            ];
+        } else if (age < 10000) {
+            dialogues = [
+                "Bạn có quen biết thần thoại nào không?",
+                "Tuổi này chắc bạn viết lại được cả lịch sử thế giới.",
+                "Đại lão tiền bối xin nhận của vãn bối một lạy."
+            ];
+        } else if (age < 100000) {
+            dialogues = [
+                "Mốc tuổi thần thánh, không thể tin nổi!",
+                "Bạn là sinh vật ngoài hành tinh đúng không?",
+                "Trái Đất này quá nhỏ bé so với số tuổi của bạn."
+            ];
+        } else {
+            // Trường hợp từ 100,000 tuổi trở lên
+            dialogues = [
+                "Số tuổi vượt giới hạn vũ trụ rồi bạn ơi!",
+                "Hệ thống máy tính bất lực trước số tuổi này.",
+                "Bạn là đấng sáng thế phương nào ghé thăm vậy?"
+            ];
+        }
+        // Bốc ngẫu nhiên 1 trong 3 câu thoại
+        const randomIndex = Math.floor(Math.random() * dialogues.length);
+        return dialogues[randomIndex];
+    };
+
+
 
     if (checkBtn) {
         // Lắng nghe sự kiện click vào nút Kiểm tra
@@ -75,6 +219,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const lowerFullname = fullname.toLowerCase();
+            const outputphamviTuoi = getAgeDialogue(age); // câu thoại trả về ứng với độ tuổi
+            
 
             // Khởi tạo các biến chứa kết quả hiển thị
             let nameResult = "";
@@ -172,8 +318,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 • <strong>Họ tên:</strong> ${fullname}<br>
                 • <strong>Tuổi:</strong> ${age} tuổi<br>
                 • <strong>Giới tính sinh học:</strong> ${gender}<br>
-                • <strong>Kết luận:</strong> ${nameResult}
-            `;
+                • <strong>Kết luận:</strong> ${nameResult}<br>
+                • <strong></strong> ${outputphamviTuoi}
+            `; // tên - tuổi - giới tính - kết luận - phạm vi tuổi
         });
     }
 });
