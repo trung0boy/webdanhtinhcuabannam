@@ -1,17 +1,17 @@
-/* Toàn bộ giao diện nền */
+/* Thiết lập cài đặt cơ bản cho toàn bộ trang: phông chữ, nền gradient và chiều cao tối thiểu */
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     background: linear-gradient(135deg, #f5f7fa 0%, #afc0db 100%);
     min-height: 100vh;
 }
 
-/* Hiệu ứng nền chấm bi nhẹ nhàng thanh lịch */
+/* Lớp nền hoa văn chấm bi nhẹ, dùng khi cần nền trang phụ hoặc section */
 .bg-pattern {
     background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
     background-size: 24px 24px;
-    }
+}
 
-
+/* Thiết kế avatar: hình tròn, viền trắng và bóng đổ */
 .avatar {
     width: 100px;
     height: 100px;
@@ -21,12 +21,13 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
 }
+
+/* Hiệu ứng hover cho avatar: phóng to nhẹ và xoay */
 .avatar:hover {
     transform: scale(1.05) rotate(5deg);
 }
 
-
-/* Container chứa form */
+/* Khung chứa form: nền trắng, bo tròn, đổ bóng và padding */
 .container {
     background-color: #ffffff;
     border-radius: 16px;
@@ -37,7 +38,7 @@ body {
     box-sizing: border-box;
 }
 
-/* Tiêu đề chính hiệu ứng Gradient Cầu vồng động cực chất */
+/* Tiêu đề chính #header với hiệu ứng chữ gradient cầu vồng động */
 #header {
     font-size: 28px;
     font-weight: 800;
@@ -51,11 +52,12 @@ body {
     animation: shine 4s linear infinite;
 }
 
+/* Hoạt ảnh chuyển gradient cho #header */
 @keyframes shine {
     to { background-position: 200% center; }
 }
 
-/* Định dạng từng chữ cái cầu vồng của phụ đề */
+/* Phụ đề nhiều màu, sắp xếp các ký tự thành hàng và có khoảng cách giữa các chữ */
 #form-title {
     font-size: 18px;
     text-align: center;
@@ -67,6 +69,7 @@ body {
     flex-wrap: wrap;
 }
 
+/* Màu sắc cho từng ký tự trong phụ đề #form-title */
 #form-title span:nth-child(1) {color: #ff0000;}
 #form-title span:nth-child(2) {color: #ff7f00;}
 #form-title span:nth-child(3) {color: #ffaa00;}
@@ -91,7 +94,7 @@ body {
 #form-title span:nth-child(22) {color: #00ff15;}
 #form-title span:nth-child(23) {color: #008277;}
 
-/* Định dạng Layout Form */
+/* Bố cục form chính: cột dọc với khoảng cách giữa các mục */
 #info-form {
     display: flex;
     flex-direction: column;
@@ -104,19 +107,21 @@ body {
     }
 }
 
+/* Nhóm mỗi cặp label và input trong form */
 .form-group {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
+/* Kiểu chữ và màu cho label */
 label {
     font-weight: 600;
     color: #4a5568;
     font-size: 14px;
 }
 
-/* Định dạng ô nhập dữ liệu */
+/* Kiểu dáng ô nhập dữ liệu text/number */
 input[type="text"],
 input[type="number"] {
     width: 100%;
@@ -129,19 +134,21 @@ input[type="number"] {
     box-sizing: border-box;
 }
 
+/* Hiệu ứng khi input nhận focus */
 input[type="text"]:focus,
 input[type="number"]:focus {
     border-color: #4b0082;
     box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.15);
 }
 
-/* Lựa chọn giới tính */
+/* Bố cục các lựa chọn giới tính theo hàng */
 .gender-options {
     display: flex;
     gap: 15px;
     margin-top: 5px;
 }
 
+/* Kiểu label cho lựa chọn giới tính */
 .gender-label {
     display: flex;
     align-items: center;
@@ -151,13 +158,14 @@ input[type="number"]:focus {
     font-size: 15px;
 }
 
+/* Kích thước và màu sắc cho radio button */
 .gender-label input[type="radio"] {
     width: 18px;
     height: 18px;
     accent-color: #8b00ff;
 }
 
-/* Nút kích hoạt kiểm tra */
+/* Nút gửi/kiểm tra thông tin */
 #check-btn {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
@@ -173,16 +181,38 @@ input[type="number"]:focus {
     box-shadow: 0 4px 6px rgba(118, 75, 162, 0.25);
 }
 
+/* Hiệu ứng hover cho nút */
 #check-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(118, 75, 162, 0.35);
 }
 
+/* Hiệu ứng khi nhấn nút */
 #check-btn:active {
     transform: translateY(0);
 }
 
-/* Khung hiển thị kết quả chung */
+/* CSS để đổi màu ô nhập khi có lỗi */
+.input-error {
+    border: 2px solid #ff4d4d !important;
+    background-color: #fff5f5;
+    outline: none;
+}
+
+/* CSS hiển thị dòng tin nhắn báo lỗi màu đỏ */
+.error-message {
+    color: #ff4d4d;
+    font-size: 14px;
+    margin-top: 5px;
+    display: none; /* Ẩn đi mặc định, chỉ hiện khi có lỗi */
+}
+
+/* Giao diện cơ bản cho nút bấm khi bị khóa */
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+/* Khung hiển thị kết quả: nền nhạt, viền nét đứt và padding */
 #result {
     margin-top: 25px;
     padding: 15px;
@@ -196,6 +226,7 @@ input[type="number"]:focus {
     font-size: 15px;
 }
 
+/* Tiêu đề phụ của khung kết quả */
 .result-title {
     font-weight: 700;
     color: #1e293b;
@@ -205,7 +236,7 @@ input[type="number"]:focus {
     padding-bottom: 5px;
 }
 
-/* Các nhóm màu sắc hiển thị khác nhau */
+/* Màu sắc khác nhau cho trạng thái kết quả */
 .status-straight {
     color: #059669; /* Màu xanh lá tươi */
     font-weight: bold;
@@ -226,6 +257,7 @@ input[type="number"]:focus {
     font-weight: bold;
 }
 
+/* Footer nhỏ phía cuối trang */
 #footer {
     margin-top: 1200px;
     text-align: center;
@@ -233,12 +265,14 @@ input[type="number"]:focus {
     color: #94a3b8;
 }
 
+/* Vị trí hiển thị thông tin Facebook */
 #facebook-info {
     margin-top: 20px;
     left: 50%;
     transform: translateX(-15%);
 }
 
+/* Vị trí hiển thị thông tin TikTok */
 #tiktok-info {
     margin-top: 20px;
     left: 50%;

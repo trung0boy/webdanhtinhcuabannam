@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkBtn = document.getElementById('check-btn');
     const resultOutput = document.getElementById('result');
 
+    // checkBtn: nút dùng để kích hoạt kiểm tra
+    // resultOutput: vùng hiển thị kết quả chẩn đoán sau khi phân tích
+
     // Danh sách các tên nghi vấn sẽ bị chẩn đoán "GAY mặc định"
     const danhsachgay = [
         "tuyen", "Tuyen", "tuyên", "Tuyên", "TUYEN", "TUYÊN",
@@ -51,7 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
       
     ];
 
-    function getAgeDialogue(age) { // kiểm tra tuổi
+    function getAgeDialogue(age) { // kiểm tra và trả về câu thoại theo phạm vi tuổi
+        // age cần là số để so sánh đúng chuỗi điều kiện.
+        // Hàm này trả về một câu ngẫu nhiên phù hợp với nhóm tuổi đã tính.
         let dialogues = [];
 
         if (age < -1000000) {
@@ -193,7 +198,35 @@ document.addEventListener("DOMContentLoaded", function () {
         return dialogues[randomIndex];
     };
 
+    function checkNameInput() {
+      const input = document.getElementById('fullname');
+      const errorText = document.getElementById('errorText');
+      const btnSubmit = document.getElementById('check-btn');
+      
+      // Regex kiểm tra xem chuỗi có chứa KÝ TỰ ĐẶC BIỆT hoặc SỐ hay không
+      // ^[a-zA-Z... ]+$ nghĩa là chuỗi CHỈ chứa chữ và khoảng trắng từ đầu đến cuối
+      const regexValid = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]*$/;
 
+      // Nếu ô nhập trống hoặc nhập đúng định dạng chữ
+      if (regexValid.test(input.value)) {
+        input.classList.remove('input-error'); // Xóa màu đỏ ô input
+        errorText.style.display = 'none';       // Ẩn dòng chữ báo lỗi
+        btnSubmit.disabled = false;            // Bật lại nút Kiểm tra
+      } 
+      // Nếu phát hiện có ký tự lạ hoặc số
+      else {
+        input.classList.add('input-error');    // Biến ô input thành màu đỏ
+        errorText.style.display = 'block';     // Hiện dòng chữ báo lỗi
+        btnSubmit.disabled = true;             // Khóa nút Kiểm tra không cho bấm
+      }
+    }
+
+    const fullnameInput = document.getElementById('fullname');
+    if (fullnameInput) {
+      fullnameInput.addEventListener('input', checkNameInput);
+      fullnameInput.addEventListener('blur', checkNameInput);
+      checkNameInput();
+    }
 
     if (checkBtn) {
         // Lắng nghe sự kiện click vào nút Kiểm tra
@@ -204,6 +237,9 @@ document.addEventListener("DOMContentLoaded", function () {
             // 2. Lấy giá trị Năm sinh và tính Tuổi
             const birthyear = document.getElementById('birthyear').value;
             const currentYear = new Date().getFullYear();
+            // birthyear lấy từ input dạng chuỗi.
+            // age tính bằng năm hiện tại trừ năm sinh.
+            // Nếu giá trị không phải số, parseInt có thể trả về NaN, nhưng kiểm tra thông tin đầu vào sẽ ngăn điều này.
             const age = birthyear ? (currentYear - parseInt(birthyear)) : "Chưa nhập";
 
             // 3. Lấy giá trị Giới tính được chọn
@@ -227,7 +263,10 @@ document.addEventListener("DOMContentLoaded", function () {
             let borderColor = "#cbd5e1";
             let backgroundColor = "#f8fafc";
 
-            // Kiểm tra xem tên có nằm trong danh sách "bị chỉ định" không
+            // Kiểm tra xem tên có nằm trong danh sách cố định hay không.
+            // So sánh bằng lowerCase để hạn chế khác biệt về hoa thường.
+            // Nếu cần chính xác hơn nên chuẩn hóa thêm dấu tiếng Việt và khoảng trắng.
+            // Thứ tự kiểm tra cũng quan trọng vì một tên có thể trùng trong nhiều danh sách.
             let isDefaultGay = danhsachgay.some(name => lowerFullname === name.toLowerCase());
             let isAdmin = danhsachtenadmin.some(name => lowerFullname === name.toLowerCase());
             let isCony = danhsachtencony.some(name => lowerFullname === name.toLowerCase());
@@ -240,7 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
            
 
             } else if (isCony) {
-                // Tên nằm trong "danh sách có người yêu" -> Chắc chắn bình thường (Màu xanh lá)
+                // Tên nằm trong "danh sách có người yêu" -> chắc chắn bình thường (Màu xanh lá)
                 nameResult = "<span class='status-straight' style='color:#16a34a;'>Thằng này có người yêu, không GAY nổi! 💚</span>";
                 borderColor = "#bbf7d0"; // Viền xanh lá
                 backgroundColor = "#f0fdf4"; // Nền xanh lá nhạt
@@ -248,7 +287,8 @@ document.addEventListener("DOMContentLoaded", function () {
             
             
             } else if (isAdmin) {
-                // Tên nằm trong "danh sách admin" -> Ch
+                // Tên nằm trong "danh sách admin" -> chắc chắn bình thường,
+                // admin được phân loại riêng và luôn ưu tiên hiển thị trạng thái bình thường.
                 nameResult = "<span class='status-admin' style='color:#2563eb;'>Đây này là Admin, chắc chắn bình thường! ✅</span>";
                 borderColor = "#bfdbfe"; // Viền xanh dương
                 backgroundColor = "#eff6ff"; // Nền xanh dương nhạt
