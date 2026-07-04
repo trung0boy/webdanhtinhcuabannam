@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     function checknamelowercase() { // chuyển tên nhập vào thành chữ thường để so sánh với danh sách cố định
         let rawname = document.getElementById('fullname').value; // Lấy giá trị Họ tên từ ô input
-        let cleanName = rawname.toLowerCase().trim(); // Chuyển tất cả ký tự thành chữ thường
+        let cleanName = rawname.toLowerCase().trim(); // Chuyển tất cả ký tự thành chữ thường và loại bỏ khoảng trắng đầu/cuối
         return cleanName;
     };
 
