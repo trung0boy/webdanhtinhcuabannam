@@ -7,51 +7,37 @@ document.addEventListener("DOMContentLoaded", function () {
     // resultOutput: vùng hiển thị kết quả chẩn đoán sau khi phân tích
 
     // Danh sách các tên nghi vấn sẽ bị chẩn đoán "GAY mặc định"
-    const danhsachgay = [
-        "tuyen", "Tuyen", "tuyên", "Tuyên", "TUYEN", "TUYÊN",
-        "minh tuyên", "Minh Tuyên", "Minh tuyên", "minh Tuyen", "MINH TUYEN", "MINH TUYÊN",
-        "minh tuyen", "Minh Tuyen", "Minh tuyên", "minh Tuyen", "MINH TUYEN", "MINH TUYÊN",
-        "vu minh tuyen", "Vu Minh Tuyen", "Vu minh tuyen", "vu Minh Tuyen", "VU MINH TUYEN", "VU MINH TUYÊN",
-        "vũ minh tuyên", "Vũ Minh Tuyên", "Vũ minh tuyên", "vũ Minh Tuyên", "VŨ MINH TUYÊN", "VŨ MINH TUYÊN",
-        "vu tuyen", "Vu Tuyen", "Vu tuyên", "vu Tuyen", "VU TUYEN", "VU TUYÊN",
-        "vũ Tuyên", "Vũ Tuyên", "Vũn tuyên", "vũ Tuyên", "VŨ TUYÊN", "VŨ TUYÊN",
+    const danhsachgay = [ // danh sách các tên nghi vấn sẽ bị chẩn đoán "GAY" mặc định
+        "tuyen", "tuyên",
+        "minh tuyen", "minh tuyên",
+        "vu minh tuyen", "vu minh tuyên", "vũ minh tuyen", "vũ minh tuyên",
 
+        "dang", "đăng",
+        "van dang", "văn đăng", "van đăng", "văn đang",
+        "nguyen dang", "nguyên đang", "nguyen đăng", "nguyễn dang","nguyễn đăng", "nguyên đăng",
+        "nguyen van dang", "nguyên văn đăng", "nguyen văn đăng", "nguyễn văn đăng", "nguyễn văn đang", "nguyên văn đang",
+        "nguyen văn đăng", "nguyên văn đăng", "nguyen văn đang", "nguyễn văn đang", "nguyễn văn đăng", "nguyên văn đăng"
 
-        "dang", "Dang", "đăng", "Đăng", "DANG", "ĐĂNG",
-        "nguyen dang", "Nguyen Dang", "Nguyen đăng", "nguyen Dang", "NGUYEN DANG", "NGUYÊN ĐĂNG",
-        "nguyễn đăng", "Nguyễn Đăng", "Nguyễn đăng", "nguyễn Đăng", "NGUYỄN ĐĂNG", "NGUYỄN ĐĂNG",
-        "van dang", "Van Dang", "Van đăng", "van Dang", "VAN DANG", "VAN ĐĂNG",
-        "văn đăng", "Văn Đăng", "Văn đăng", "văn Đăng", "VĂN ĐĂNG", "VĂN ĐĂNG",
-        "nguyen van dang", "Nguyen Van Dang", "Nguyen văn đăng", "nguyen Van Dang", "NGUYEN VAN DANG", "NGUYÊN VĂN ĐĂNG",
-        "nguyễn văn đăng", "Nguyễn Văn Đăng", "Nguyễn văn đăng", "nguyễn Văn Đăng", "NGUYỄN VĂN ĐĂNG", "NGUYỄN VĂN ĐĂNG"
+        
     ];
 
-    const danhsachtencony = [
-        "hieu", "Hieu", "hiếu", "Hiếu", "HIEU", "HIẾU",
-        "dang hieu", "Dang Hieu", "Dang hiếu", "dang Hieu", "DANG HIEU", "ĐĂNG HIẾU",
-        "đăng hiếu", "Đăng Hiếu", "Đăng hiếu", "đăng Hiếu", "ĐĂNG HIẾU", "ĐĂNG HIẾU",
-        "nguyen dang hieu", "Nguyen Dang Hieu", "Nguyen dang hieu", "nguyen Dang Hieu", "NGUYEN DANG HIEU", "NGUYÊN ĐĂNG HIẾU",
-        "nguyễn đăng hiếu", "Nguyễn Đăng Hiếu", "Nguyễn đăng hiếu", "nguyễn Đăng Hiếu", "NGUYỄN ĐĂNG HIẾU", "NGUYỄN ĐĂNG HIẾU",
-        "nguyen hieu", "Nguyen Hieu", "Nguyen hiếu", "nguyen Hieu", "NGUYEN HIEU", "NGUYÊN HIẾU",
-        "nguyễn Hiếu", "Nguyễn Hiếu", "Nguyễnn hiếu", "nguyễn Hiếu", "NGUYỄN HIẾU", "NGUYỄN HIẾU",
-        "nguyễn hieu", "Nguyễn Hieu", "Nguyễn hiếu", "nguyễn Hieu", "NGUYỄN HIEU", "NGUYỄN HIẾU"
+    const danhsachtencony = [ // danh sách các tên nghi vấn sẽ bị chẩn đoán "có người yêu" mặc định
+        "hieu", "hiêu", "hiếu",
+        "hieu nguyen", "hiêu nguyen", "hieu nguyên", "hiếu nguyen", "hiêu nguyên", "hiếu nguyên", "hiếu nguyễn",
+        "nguyen hieu", "nguyen hiêu", "nguyên hieu", "nguyen hiếu", "nguyên hiêu", "nguyên hiếu", "nguyễn hiếu",
+        "nguyen dang hieu", "nguyen dang hiêu", "nguyen dang hiếu", "nguyen đăng hieu", "nguyen đăng hiêu", "nguyen đăng hiếu",
+        "nguyễn đăng hiếu", "nguyễn đăng hiêu", "nguyễn đăng hieu", "nguyên đăng hiếu", "nguyên đăng hiêu", "nguyên đăng hieu",
+        "nguyen van hieu", "nguyen van hiêu", "nguyen van hiếu", "nguyen văn hieu", "nguyen văn hiêu", "nguyen văn hiếu",
+        "nguyễn văn hiếu", "nguyễn văn hiêu", "nguyễn văn hieu", "nguyên văn hiếu", "nguyên văn hiêu", "nguyên văn hieu"
     ];
 
     const danhsachtenadmin = [ // tên admin sẽ được chẩn đoán chắc chắn bình thường
-        "trung","Trung","TRUNG",
-        "thanh trung","Thanh Trung","Thanh trung","thanh Trung","THANH TRUNG","THANH Trung",
-        "thành trung","Thành Trung","Thành trung","thành Trung","THÀNH TRUNG","THANH trung",
-        "THÀNH trung","THÀNH Trung","nguyễn trung", "Nguyễn trung","NGUYỄN trung",
-        "nguyễn Trung","NGUYEN Trung","NGUYEN trung","NGUYỄN TRUNG","nguyen trung","Nguyen trung","NGUYEN TRUNG",
-        "nguyen Trung","Nguyen Trung","Nguyễn Trung","NGUYỄN Trung",
-        "nguyen thanh trung","Nguyen thanh trung","nguyen thanh Trung","NGUYEN thanh trung",
-        "Nguyen Thanh Trung","nguyen Thanh trung","NGUYEN THANH TRUNG","NGUYEN Thanh Trung",
-        "nguyễn thành trung","nguyễn Thành trung","NGUYỄN thành trung","Nguyen Thành Trung",
-        "Nguyễn Thành Trung","nguyễn thành Trung","NGUYỄN Thành Trung","NGUYEN THÀNH TRUNG",
-        "Nguyễn thành trung","NGUYỄN THÀNH TRUNG","nguyen thành trung","nguyễn thanh trung",
-        "nguyen Thanh trung","Nguyễn thanh trung","nguyễn Thanh trung","Nguyễn Thanh Trung",
-        "NGUYỄN THANH TRUNG","nguyen thanh Trung","nguyễn thành Trung"
-      
+        "trung",
+        "trung nguyen", "trung nguyên", "trung nguyễn",
+        "nguyen trung", "nguyễn trung", "nguyên trung",
+        "thanh trung", "thành trung",
+        "nguyen thanh trung", "nguyên thanh trung", "nguyen thành trung", "nguyễn thanh trung","nguyên thành trung","nguyễn thành trung"
+
     ];
 
     function getAgeDialogue(age) { // kiểm tra và trả về câu thoại theo phạm vi tuổi
@@ -198,7 +184,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return dialogues[randomIndex];
     };
 
-    function checkNameInput() {
+    function checkNameInput() { // Hàm kiểm tra ô nhập Họ tên các kí tự có hợp lệ hay không
       const input = document.getElementById('fullname');
       const errorText = document.getElementById('errorText');
       const btnSubmit = document.getElementById('check-btn');
@@ -219,7 +205,12 @@ document.addEventListener("DOMContentLoaded", function () {
         errorText.style.display = 'block';     // Hiện dòng chữ báo lỗi
         btnSubmit.disabled = true;             // Khóa nút Kiểm tra không cho bấm
       }
-    }
+    };
+    function checknamelowercase() { // chuyển tên nhập vào thành chữ thường để so sánh với danh sách cố định
+        let rawname = document.getElementById('fullname').value; // Lấy giá trị Họ tên từ ô input
+        let cleanName = rawname.toLowerCase(); // Chuyển tất cả ký tự thành chữ thường
+        return cleanName;
+    };
 
     const fullnameInput = document.getElementById('fullname');
     if (fullnameInput) {
@@ -254,7 +245,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            const lowerFullname = fullname.toLowerCase();
+            const lowerFullname = checknamelowercase(); // chuẩn hóa tên thành chữ thường để so sánh với danh sách cố định
             const outputphamviTuoi = getAgeDialogue(age); // câu thoại trả về ứng với độ tuổi
             
 

@@ -11,17 +11,25 @@ def to_hop_viet_hoa_theo_so_luong(chuoi, so_ky_tu):
         kq = list(chuoi.lower())
         for j in i:
             kq[j] = kq[j].upper()
-        A.append["".join(kq)]
-    return A #toàn bộ tổ hợp xảy ra khi viết hoa 1,2,3,...,n kí tự.
+            h = "".join(kq)
+            A.append(h)
+    return A
 
+def slove(listchuoi):
+    A= []
+    for chuoi in listchuoi:
+        n = len(chuoi)
+        for i in range(1,n+1):
+            A.append(to_hop_viet_hoa_theo_so_luong(chuoi, i))
+    return A
 
-listchuoi =["abcdef","qưertyu"] # chuỗi cần viết hoa
-kqchuoi =[]
-for chuoi in listchuoi:
-    for i in range(len(chuoi)):
-        kqchuoi += to_hop_viet_hoa_theo_so_luong(chuoi,i)
-        print(chuoi,i)
-print(kqchuoi)
+A=["nguyen thanh trung"]
+kq = slove(A)
 
+for i in kq:
+    print(i)
 
+"""
+Chương trình tạo tất cả các tổ hợp viết hoa các ký tự trong chuỗi theo số lượng ký tự được chọn.
+"""
 
