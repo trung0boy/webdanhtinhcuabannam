@@ -20,11 +20,14 @@ body {
     border: 4px solid white;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 150, 255, 0.5);
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 /* Hiệu ứng hover cho avatar: phóng to nhẹ và xoay */
 .avatar:hover {
     transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
 }
 
 /* Khung chứa form: nền trắng, bo tròn, đổ bóng và padding */
@@ -40,6 +43,7 @@ body {
 
 /* Tiêu đề chính #header với hiệu ứng chữ gradient cầu vồng động */
 #header {
+    
     font-size: 28px;
     font-weight: 800;
     text-align: center;
@@ -50,6 +54,8 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 4s linear infinite;
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    
 }
 
 /* Hoạt ảnh chuyển gradient cho #header */
@@ -59,17 +65,41 @@ body {
 
 /* Phụ đề nhiều màu, sắp xếp các ký tự thành hàng và có khoảng cách giữa các chữ */
 #form-title {
-    font-size: 18px;
+    /* Hiệu ứng đổ bóng cho chữ */
+    text-shadow: 1px 1px violet; 
+    font-family: cursive; /* Chọn font chữ */
+    /* font-style: italic; In nghiêng */
+    font-style: italic;
+    color: #33152f; /* Màu sắc */
+    /* Kích thước chữ */
+    font-size: 20px;
+    /* Căn giữa văn bản */
     text-align: center;
+    /* Đậm chữ */
     font-weight: 700;
+    /* Khoảng cách giữa các chữ */
     letter-spacing: 1px;
+    /* Sử dụng flexbox để xếp các ký tự con */
     display: flex;
+    /* Căn giữa các item trong hàng */
     justify-content: center;
+    /* Khoảng cách giữa các ký tự con */
     gap: 2px;
+    /* Cho phép các ký tự xuống dòng nếu cần */
     flex-wrap: wrap;
+}
+#gioitinhnam {
+    text-shadow: #3b82f6 1px 1px 6px;
+}
+#gioitinhnu {
+    text-shadow: #ec4899 1px 1px 6px;
+}
+#gioitinhkhac {
+    text-shadow: #a855f7 1px 1px 6px;
 }
 
 /* Màu sắc cho từng ký tự trong phụ đề #form-title */
+/*
 #form-title span:nth-child(1) {color: #ff0000;}
 #form-title span:nth-child(2) {color: #ff7f00;}
 #form-title span:nth-child(3) {color: #ffaa00;}
@@ -93,7 +123,7 @@ body {
 #form-title span:nth-child(21) {color: #88ff00;}
 #form-title span:nth-child(22) {color: #00ff15;}
 #form-title span:nth-child(23) {color: #008277;}
-
+*/
 /* Bố cục form chính: cột dọc với khoảng cách giữa các mục */
 #info-form {
     display: flex;
