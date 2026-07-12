@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (isAdmin) {
                 // Tên nằm trong "danh sách admin" -> chắc chắn bình thường,
                 // admin được phân loại riêng và luôn ưu tiên hiển thị trạng thái bình thường.
-                nameResult = "<span class='status-admin' style='color:#2563eb;'>Đây này là Admin, chắc chắn bình thường! ✅</span>";
+                nameResult = "<span class='status-admin' style='color:#2563eb;'>Đây là Admin, chắc chắn bình thường! ✅</span>";
                 borderColor = "#bfdbfe"; // Viền xanh dương
                 backgroundColor = "#eff6ff"; // Nền xanh dương nhạt
             
