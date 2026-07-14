@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
       
       // Regex kiểm tra xem chuỗi có chứa KÝ TỰ ĐẶC BIỆT hoặc SỐ hay không
       // ^[a-zA-Z... ]+$ nghĩa là chuỗi CHỈ chứa chữ và khoảng trắng từ đầu đến cuối
-      const regexValid = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]*$/;
+      const regexValid = /^[a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀẾỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\s]*$/;
 
       // Nếu ô nhập trống hoặc nhập đúng định dạng chữ
       if (regexValid.test(input.value)) {
