@@ -63,8 +63,9 @@ body {
     to { background-position: 200% center; }
 }
 
-/* Phụ đề nhiều màu, sắp xếp các ký tự thành hàng và có khoảng cách giữa các chữ */
+/* Phụ đề phụ, sắp xếp các ký tự thành hàng và có khoảng cách giữa các chữ */
 #form-title {
+    
     /* Hiệu ứng đổ bóng cho chữ */
     text-shadow: 1px 1px violet; 
     font-family: cursive; /* Chọn font chữ */
@@ -78,7 +79,7 @@ body {
     /* Đậm chữ */
     font-weight: 700;
     /* Khoảng cách giữa các chữ */
-    letter-spacing: 1px;
+    letter-spacing: -1px;
     /* Sử dụng flexbox để xếp các ký tự con */
     display: flex;
     /* Căn giữa các item trong hàng */
