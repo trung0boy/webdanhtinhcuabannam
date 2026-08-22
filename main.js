@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "nguyen thanh trung", "nguyên thanh trung", "nguyen thành trung", "nguyễn thanh trung","nguyên thành trung","nguyễn thành trung"
 
     ];
-    const danhsachbannu[
+    const danhsachbannu = [
 
 "thuc anh", "thục anh",
 
