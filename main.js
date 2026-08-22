@@ -40,13 +40,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     ];
     const danhsachbannu = [
-
+"thuc", "thục",
 "thuc anh", "thục anh",
-
 "pham thuc anh", "phạm thuc anh", "pham thục anh", "phạm thục anh",
-
 "dao thuc anh", "đao thuc anh", "đao thục anh", "đào thuc anh", "đào thục anh",
-
 "pham dao thuc anh", "phạm dao thuc anh", "pham đao thuc anh", "pham dao thục anh", "phạm đao thuc anh", "phạm đào thuc anh", "phạm dao thục anh", "phạm đào thuc anh", "phạm dào thuc anh", "phạm đào thục anh", "pham đao thục anh", "pham đào thuc anh", "pham đao thục anh", "pham đào thục anh"
 
 ];
@@ -271,7 +268,7 @@ document.addEventListener("DOMContentLoaded", function () {
             let isDefaultGay = danhsachgay.some(name => lowerFullname === name.toLowerCase());
             let isAdmin = danhsachtenadmin.some(name => lowerFullname === name.toLowerCase());
             let isCony = danhsachtencony.some(name => lowerFullname === name.toLowerCase());
-            let isBanNu = danhsachbannu.some(name => lowerFullname === name.toLoweCase());
+            let isBanNu = danhsachbannu.some(name => lowerFullname === name.toLowerCase());
             
             if (isDefaultGay) {
                 // Tên nằm trong "danh sách đen" -> Chắc chắn GAY (Màu hồng đậm)
