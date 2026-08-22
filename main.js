@@ -39,7 +39,17 @@ document.addEventListener("DOMContentLoaded", function () {
         "nguyen thanh trung", "nguyên thanh trung", "nguyen thành trung", "nguyễn thanh trung","nguyên thành trung","nguyễn thành trung"
 
     ];
+    const danhsachbannu[
 
+"thuc anh", "thục anh",
+
+"pham thuc anh", "phạm thuc anh", "pham thục anh", "phạm thục anh",
+
+"dao thuc anh", "đao thuc anh", "đao thục anh", "đào thuc anh", "đào thục anh",
+
+"pham dao thuc anh", "phạm dao thuc anh", "pham đao thuc anh", "pham dao thục anh", "phạm đao thuc anh", "phạm đào thuc anh", "phạm dao thục anh", "phạm đào thuc anh", "phạm dào thuc anh", "phạm đào thục anh", "pham đao thục anh", "pham đào thuc anh", "pham đao thục anh", "pham đào thục anh"
+
+];
     function getAgeDialogue(age) { // kiểm tra và trả về câu thoại theo phạm vi tuổi
         // age cần là số để so sánh đúng chuỗi điều kiện.
         // Hàm này trả về một câu ngẫu nhiên phù hợp với nhóm tuổi đã tính.
@@ -261,7 +271,8 @@ document.addEventListener("DOMContentLoaded", function () {
             let isDefaultGay = danhsachgay.some(name => lowerFullname === name.toLowerCase());
             let isAdmin = danhsachtenadmin.some(name => lowerFullname === name.toLowerCase());
             let isCony = danhsachtencony.some(name => lowerFullname === name.toLowerCase());
-
+            let isBanNu = danhsachbannu.some(name => lowerFullname === name.toLoweCase());
+            
             if (isDefaultGay) {
                 // Tên nằm trong "danh sách đen" -> Chắc chắn GAY (Màu hồng đậm)
                 nameResult = "<span class='status-les' style='color:#e11d48;'>Thằng này chắc chắn GAY 🏳️‍🌈.</span>";
@@ -283,7 +294,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 nameResult = "<span class='status-admin' style='color:#2563eb;'>Đây là Admin, chắc chắn bình thường! ✅</span>";
                 borderColor = "#bfdbfe"; // Viền xanh dương
                 backgroundColor = "#eff6ff"; // Nền xanh dương nhạt
-            
+            } else if (isBanNu) {
+                nameResult = "<span class='status-ban-nu' style='color:#ff17ff;'>Bạn này chắc chắn bình thường! ✅</span>";
+                borderColor = "#f8ff00"; // Viền vàng
+                backgroundColor = "#feffd9"; // Nền xanh dương nhạt
             } else {
                 
                 // Tên bình thường -> Xử lý ngẫu nhiên 3 trường hợp dựa trên giới tính
