@@ -27,7 +27,7 @@ body {
 /* Hiệu ứng hover cho avatar: phóng to nhẹ và xoay */
 .avatar:hover {
     transform: scale(1.05) rotate(5deg);
-    box-shadow: 0 0 20px rgba(0, 150, 255, 0.7);
+    box-shadow: 0 0 20px rgba(255, 246, 0, 0.7); // (rr, gg, bb, alpha)
 }
 
 /* Khung chứa form: nền trắng, bo tròn, đổ bóng và padding */
