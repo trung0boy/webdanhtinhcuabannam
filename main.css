@@ -6,9 +6,25 @@ body {
 }
 
 /* Lớp nền hoa văn chấm bi nhẹ, dùng khi cần nền trang phụ hoặc section */
+/*
 .bg-pattern {
     background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
     background-size: 24px 24px;
+}
+*/
+
+/* background moi*/
+
+/* Ảnh nền toàn trang */
+.bg-pattern {
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.18), rgba(15, 23, 42, 0.18)),
+        url("xuong_hang.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Thiết kế avatar: hình tròn, viền trắng và bóng đổ */
